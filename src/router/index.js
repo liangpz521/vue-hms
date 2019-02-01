@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
 import UserList from '@/views/UserList.vue'
+import Layout from '@/views/page/Layout.vue'
 
 Vue.use(Router)
 
@@ -27,8 +28,16 @@ export default new Router({
         {path: '/user', component: Login, name: '列表'},
         {path: '/user/page', component: UserList, name: '用户列表'}
       ]
+    },
+    {
+      path: '/',
+      component: Home,
+      name: '页面布局',
+      iconCls: 'el-icon-message',
+      children: [
+        {path: '/page/layout', component: Layout, iconCls: 'el-icon-message', name: '布局'}
+      ]
     }
-
   ]
 })
 

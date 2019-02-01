@@ -25,7 +25,19 @@
                 <el-button type="primary" v-on:click="getUsers">查询</el-button>
               </el-form-item>
             </el-col>
+            <el-col :span="8">
+              <el-form-item label="状态">
+                <el-radio-group v-model="form.radio">
+                  <el-radio label="1" >已发布</el-radio>
+                  <el-radio label="2" >未发布</el-radio>
+                  <el-radio label="3" >已下架</el-radio>
+
+                </el-radio-group>
+
+              </el-form-item>
+            </el-col>
           </el-form>
+
         </el-form>
       </el-collapse-item>
     </el-collapse>
@@ -92,6 +104,7 @@
         activeNames: [1],
         listLoading: false,
         form: {
+          radio: '1',
           siteName: '',
           deviceNoItems: [{text: '全部', value: '全部'}, {text: '设备一', value: '设备一'}, {text: '设备二', value: '设备二'}],
           startTime: '',
@@ -132,6 +145,7 @@
           pageSize: this.listQuery.pageSize,
           siteName: this.filters.siteName
         }
+        console.log(this.form.radio)
         this.listLoading = true
         userApi.search(para).then(res => {
           this.total = res.data.total

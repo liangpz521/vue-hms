@@ -248,7 +248,7 @@
         // bottom: 0px;
         // left: 230px;
         overflow-y: scroll;
-        padding: 20px;
+        padding: 15px;
         .breadcrumb-container {
           //margin-bottom: 15px;
           .title {
